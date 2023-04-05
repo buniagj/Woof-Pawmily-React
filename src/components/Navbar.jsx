@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
 
 function Navbar() {
   const [click, setClick] = useState(false);
+  const [buttonText, setButtonText] = useState('SIGN UP');
   const [button, setButton] = useState(true);
+  const location = useLocation();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -23,14 +25,30 @@ function Navbar() {
     showButton();
   }, []);
 
-  window.addEventListener('resize', showButton);
+  useEffect(() => {
+    if (window.innerWidth > 960) {
+      setButton(true);
+    }
+    window.addEventListener('resize', showButton);
+    return () => {
+      window.removeEventListener('resize', showButton);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/profile') {
+      setButtonText('LOG OUT');
+    } else {
+      setButtonText('SIGN UP');
+    }
+  }, [location]);
 
   return (
     <>
       <nav className='navbar-class'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <img src={logo} alt=""/>
+            <img src={logo} alt='' />
             <i className='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
@@ -67,11 +85,18 @@ function Navbar() {
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                {buttonText}
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline' style={{borderColor:'#3D55C1', color:'#3D55C1', backgroundColor:'#F9C784'}}>SIGN UP</Button>}
+          {button && (
+            <Button
+              buttonStyle='btn--outline'
+              style={{ borderColor: '#3D55C1', color: '#3D55C1', backgroundColor: '#F9C784' }}
+            >
+              {buttonText}
+            </Button>
+          )}
         </div>
       </nav>
     </>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
-import AboutUs from './AboutUs'; 
 
 function HeroSection() {
   return (
@@ -28,6 +27,17 @@ function HeroSection() {
             GET STARTED
           </Button>
         </Link>
+      </div>
+      <div> 
+        <p className="login-class">Already a Member?</p>
+        <Link to='/login' className='btn-login'>
+            <Button
+              buttonStyle='btn--primary'
+              buttonSize='btn--large'
+            >
+              LOGIN
+            </Button>
+          </Link>
       </div>
     </div>
   );

@@ -1,0 +1,119 @@
+:root {
+  --primary: #E98842;
+  --secondary: #3D55C1;
+  --dark: #14192C;
+  --light: #F9C784;
+}
+
+body {
+  background-image: url(../assets/images/img-8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.login-page {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 2em;
+  margin: 6rem auto !important;
+  max-width: 500px;
+  align-items: center;
+  max-height: 60vh;
+}
+
+.login-page h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.login-page label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.login-page input[type="email"],
+.login-page input[type="password"] {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.login-button {
+  display: block;
+  margin: 0 30%;
+  background-color: var(--light);
+  color: var(--dark);
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+}
+
+.login-button:hover {
+  background-color: var(--secondary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.4);
+}
+
+
+
+.option {
+  margin-top: 1rem;
+  padding: 1rem;
+  color: white;
+}
+
+.option a {
+  color: var(--light);
+}
+
+/* Additional styles */
+.login-page input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+.login-page input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #fff;
+  opacity: 0.7;
+}
+
+.login-page input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff;
+  opacity: 0.7;
+}
+
+.login-page input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #fff;
+  opacity: 0.7;
+}
+
+.login-page input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #fff;
+  opacity: 0.7;
+}
