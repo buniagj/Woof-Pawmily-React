@@ -5,6 +5,28 @@
   --light: #F9C784;
 }
 
+.dog-img{
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding-top: 10px;
+  border-radius: 20px;
+  /* background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px; */
+ }
+ .collumn-fordogs{
+   border-radius: 20px;
+   background-color: rgba(255, 255, 255, 0.15);
+   margin: 2rem;
+   overflow: hidden;
+ }
+ .collumn-fordogs:hover .dog-img{
+   transform: scale(1.3);
+ }
+ #dog-search-row{
+   background-color: var(--dark);
+ }
 
 
 * {
