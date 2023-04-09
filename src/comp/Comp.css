@@ -1,0 +1,111 @@
+section{
+    background-color: rgb(230, 230, 231);
+}
+header{
+    position: relative;
+}
+
+
+/* ==NAV BAR== */
+.nav-logo{
+    width: 20%;
+    margin-bottom: .7rem;
+}
+.navi-bar{
+    background-color: rgb(230, 230, 231);
+}
+.nav-container{
+    border-top: 1px solid #E98842;
+    border-bottom: 4px solid #E98842;
+    border-left: 1px solid #E98842;
+    border-right: 1px solid #E98842;
+    border-radius: 10px;
+    padding: 0;
+}
+.nav-links a{
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+    transition: .15s;
+}
+.nav-links a:hover{
+    background-color: rgb(241, 241, 241);
+}
+@media screen and (max-width: 991px) {
+    .nav-container{
+        border: none;
+    }
+    .nav-logo{
+        width: 40%;
+    }
+}
+.navbar-toggler{
+    position: absolute;
+    top: 38%;
+    margin-bottom: 20rem;
+}
+
+/* ==HERO SECTION== */
+.container{
+    padding: 0!important;
+}
+.hero-container{
+    position: relative;
+    margin: 0 1px;
+    height: calc(100vh - 202.3px);
+    overflow: hidden;
+}
+video{
+    position: absolute;
+    margin: 1em auto;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    object-fit: cover;
+    z-index: 1;
+    border-radius: 10px;
+    border-top: 2px solid #E98842;
+    border-bottom: 4px solid #E98842;
+    border-left: 2px solid #E98842;
+    border-right: 2px solid #E98842;
+}
+.hero-texts{
+    background-color: rgba(0, 0, 0, 0.61);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    height: 40%;
+}
+.hero-texts h1,
+.hero-texts p{
+    color: white!important;
+    text-align: center;
+}
+.hero-texts h1{
+    font-size: 5rem;
+}
+.hero-texts p{
+    font-size: 2rem;
+}
+
+/* ==FEATURED SECTION== */
+.featured-row{
+    height: 70vh;
+}
+.featured-row > div > figure{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.featured-row > div > figure > p{
+    position: absolute;
+}
+.featured-row > div > figure > img{
+    width: 80%;
+    border: 3px solid #E98842;
+    border-radius: 10px;
+}
+
+/* FEATURED SERVICES */
+#FeaturedServices > div > div > figure > img{
+    border-radius: 10px;
+    border: 3px solid #E98842;
+}

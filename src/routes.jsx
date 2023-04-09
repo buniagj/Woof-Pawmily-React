@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './pages/Home';
-import Services from './pages/Services';
+import Pawpedia from './pages/Pawpedia';
 import Products from './pages/Products';
 import SignUp from './pages/SignUp';
 import SignUpForm from "./components/SignUpForm.jsx";
@@ -15,15 +15,15 @@ const routes = [
     element: <Home />
   },
   {
-    path: "/AboutUs",
+    path: "/about",
     element: <AboutUs />
   },
   {
-    path: "/Services",
-    element: <Services />
+    path: "/pawpedia",
+    element: <Pawpedia />
   },
   {
-    path: "/Products",
+    path: "/products",
     element: <Products />
   },
   {
