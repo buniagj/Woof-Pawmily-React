@@ -2,6 +2,8 @@ import './App.css';
 import Home from './pages/Home';
 import Pawpedia from './pages/Pawpedia';
 import Products from './pages/Products';
+import Contact from './pages/Contact';
+import Services from './pages/Services';
 import SignUp from './pages/SignUp';
 import SignUpForm from "./components/SignUpForm.jsx";
 import AboutUs from "./components/AboutUs";
@@ -15,20 +17,20 @@ const routes = [
     element: <Home />
   },
   {
-    path: "/about",
-    element: <AboutUs />
+    path: "/contact",
+    element: <Contact />
   },
   {
     path: "/pawpedia",
     element: <Pawpedia />
   },
   {
-    path: "/products",
-    element: <Products />
+    path: "/services",
+    element: <Services />
   },
   {
-    path: "/SignUp",
-    element: <SignUp />
+    path: "/products",
+    element: <Products />
   },
   {
     path: "/LogIn",

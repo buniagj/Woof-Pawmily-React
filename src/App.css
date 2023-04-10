@@ -15,6 +15,11 @@
   /* background-color: rgba(255, 255, 255, 0.15);
   border-radius: 20px; */
  }
+ .img-modal{
+  height: 500px;
+  width: 100%;
+  object-fit: contain;
+ }
  .collumn-fordogs{
    border-radius: 20px;
    background-color: rgba(255, 255, 255, 0.15);
@@ -98,4 +103,29 @@ a.btn-login {
 
 a {
   text-decoration: none;
+}
+
+
+
+#contact{
+  height: 63vh;
+  color: #333333;
+}
+.send-msg{
+  padding: .6rem 10rem;
+  color: #333333;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.2);
+  border: 2px solid rgb(0, 0, 0);
+  transition: .2s;
+}
+.send-msg:hover{
+  border-radius: 30px;
+  background-color: rgba(212, 0, 202, 0.7);
+  color: white;
+}
+
+.product-img{
+  height: 400px;
+  width: 400px;
 }

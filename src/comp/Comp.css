@@ -39,8 +39,8 @@ header{
     }
 }
 .navbar-toggler{
-    position: absolute;
-    top: 38%;
+    position: fixed;
+    top: 8%;
     margin-bottom: 20rem;
 }
 
