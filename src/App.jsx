@@ -31,6 +31,7 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom"
 import routes from "./routes"
 import Navbar from './comp/Navbar'
+import Footer from './comp/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           return <Route key={index} path={route.path} element={route.element} exact />
         })}
       </Routes>
+      <Footer />
     </>
   )
 }

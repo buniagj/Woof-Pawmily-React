@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barrio&display=swap');
+
 :root {
   --primary: #E98842;
   --secondary: #3D55C1;
@@ -35,13 +37,16 @@
 .text-container h1 {
   font-size: 100px;
   margin-top: -100px;
+  font-family: 'Barrio', cursive;
+}
+.text-container h1 > span {
+  color: #E98842;
 }
 
 .text-container p {
   margin-top: 8px;
   font-size: 32px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: 'Barrio', cursive;
 }
 
 .btn {

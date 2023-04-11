@@ -11,7 +11,7 @@ export default function Hero() {
             </video>
             <Container className='hero-texts'>
                 <div>
-                    <h1>Pawsitively the best.</h1>
+                    <h1 className='font-text'>Pawsitively the best.</h1>
                 </div>
                 <div>
                     <p>What are you waiting for?</p>

@@ -4,6 +4,7 @@ import logo from '../assets/images/logo.png'
 import './Comp.css'
 import { useAuth } from '../AuthContext'
 import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function TheNavbar() {
   const { currentUser, signOut } = useAuth() || {};
@@ -23,11 +24,11 @@ export default function TheNavbar() {
                 <Container className='nav-container'>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className='mx-auto nav-links'>
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="pawpedia">Pawpedia</Nav.Link>
-                            <Nav.Link href="products">Products</Nav.Link>
-                            <Nav.Link href="aboutus">About</Nav.Link>
-                            <Nav.Link href="contact">Contact</Nav.Link>
+                            <Link to="/" className="font-text-nav">HOME</Link>
+                            <Link className="font-text-nav" to="pawpedia">PAWPEDIA</Link>
+                            <Link className="font-text-nav" to="products">PRODUCTS</Link>
+                            <Link className="font-text-nav" to="aboutus">ABOUT</Link>
+                            <Link className="font-text-nav" to="contact">CONTACT</Link>
                             {currentUser && isProfilePage ? (
                               <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
                             ) : (
