@@ -15,8 +15,8 @@ export default function Featured() {
                 </div>
                 <div className="col-12 col-md-5 col-lg-5">
                     <h1 className='text-start'>LOOKING FOR THE BEST HEALTHY FOOD FOR YOUR DOG?</h1>
-                    <h3>DESC</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis facere a minus sapiente iure facilis incidunt, maxime autem doloribus quae distinctio amet eveniet vitae adipisci unde ipsa inventore hic! Enim quod voluptate necessitatibus ipsam vero perspiciatis, dolor eos nisi? Quibusdam necessitatibus quam beatae, dolores assumenda non saepe tempore est quasi!</p>
+                    <h3>Check out our Products!</h3>
+                    <p>Look no further! Your furry friend deserves the best, and that means feeding them high-quality, nutritious food. With so many options on the market, it can be overwhelming to choose the right one. But don't worry, we've got you covered. Our carefully crafted dog food is made with only the finest ingredients and is packed with essential nutrients to keep your pup happy and healthy. Say goodbye to cheap, filler-filled dog food that does more harm than good. Treat your dog to the best with our top-quality, healthy dog food. Your dog will thank you for it!</p>
                 </div>
             </div>
         </Container>

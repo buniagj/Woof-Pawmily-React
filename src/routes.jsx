@@ -4,7 +4,6 @@ import Pawpedia from './pages/Pawpedia';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import Services from './pages/Services';
-import SignUp from './pages/SignUp';
 import SignUpForm from "./components/SignUpForm.jsx";
 import AboutUs from "./components/AboutUs";
 import LogIn from "./components/LogIn.jsx";
@@ -31,6 +30,10 @@ const routes = [
   {
     path: "/products",
     element: <Products />
+  },
+  {
+    path: "/AboutUs",
+    element: <AboutUs />
   },
   {
     path: "/LogIn",

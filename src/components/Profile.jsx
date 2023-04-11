@@ -1,190 +1,179 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.css";
+import { auth, firestore } from "../firebase";
 
 function Profile() {
+  const [userData, setUserData] = useState(null);
+  const [petData, setPetData] = useState(null);
+  const [transactions, setTransactions] = useState([]);
+  const [userPhoto, setUserPhoto] = useState(null);
+  const [petPhoto, setPetPhoto] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  useEffect(() => {
+    async function fetchUserData() {
+      const userRef = firestore.collection("users").doc(auth.currentUser.uid);
+      const userDoc = await userRef.get();
+      setUserData(userDoc.data());
+    }
+
+    if (auth.currentUser) {
+      fetchUserData().catch((error) => {
+        setErrorMessage(errorMessage); // Display error message to user
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    async function fetchPetData() {
+      const petsRef = firestore.collection("pets").where("ownerId", "==", auth.currentUser.uid);
+      const petDocs = await petsRef.get();
+      setPetData(petDocs.docs.map((doc) => doc.data()));
+    }
+
+    if (auth.currentUser) {
+      fetchPetData().catch((error) => {
+        setErrorMessage(error.message); // Display error message to user
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    async function fetchTransactions() {
+      const transactionsRef = firestore
+        .collection("transactions")
+        .where("userId", "==", auth.currentUser.uid)
+        .orderBy("date", "desc")
+        .limit(5);
+      const transactionDocs = await transactionsRef.get();
+      setTransactions(transactionDocs.docs.map((doc) => doc.data()));
+    }
+
+    if (auth.currentUser) {
+      fetchTransactions().catch((error) => {
+        setErrorMessage(error.message); // Display error message to user
+      });
+    }
+  }, []);
+
+  function handleAddPet() {
+    // Handle adding a new pet
+  }
+
+  const handleUserPhotoChange = (e) => {
+    setUserPhoto(URL.createObjectURL(e.target.files[0]));
+    setPetPhoto(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const handlePetPhotoChange = (e, index) => {
+    let newPetData = [...petData];
+    newPetData[index].photo = URL.createObjectURL(e.target.files[0]);
+    setPetData(newPetData);
+  };
+
   return (
     <div className="profile-container">
       <div className="profile-card">
         <div className="profile-header">
           <h1>My Profile</h1>
         </div>
-        <div className="profile-body">
-          <div className="profile-details">
-            <h2>Pawsonal Information</h2>
-            <div className="personal-info">
-              <div className="profile-photo">
-                <img src="/images/img-10.jpg" alt="John Doe" />
-              </div>
-              <div className="profile-info">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Name:</td>
-                      <td>John Doe</td>
-                    </tr>
-                    <tr>
-                      <td>Age:</td>
-                      <td>30</td>
-                    </tr>
-                    <tr>
-                      <td>Email:</td>
-                      <td>johndoe@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Phone:</td>
-                      <td>555-555-5555</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <br />
-            <h2 className="pet-details">Pet's Information</h2>
-            <div className="pet-info">
-              <div className="profile-photo">
-                <img src="/images/img-11.jpg" alt="Sasha" />
-              </div>
-              <div className="profile-info">
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Name:</td>
-                      <td>Sasha</td>
-                    </tr>
-                    <tr>
-                      <td>Breed:</td>
-                      <td>Boodle</td>
-                    </tr>
-                    <tr>
-                      <td>Age:</td>
-                      <td>8 months</td>
-                    </tr>
-                    <tr>
-                      <td>Allergy:</td>
-                      <td>None</td>
-                    </tr>
-                  </tbody>
-                </table>
+        {userData && (
+          <div className="profile-body">
+            <div className="profile-details">
+              <h2>Pawsonal Information</h2>
+              <div className="personal-info">
+                <div className="profile-photo">
+                  {userPhoto ? (
+                    <img src={userPhoto} alt={userData.name} />
+                  ) : (
+                    <img src="/images/img-10.jpg" alt={userData.name} />
+                  )}
+                  <label className="photo-upload">
+                    <input type="file" onChange={handleUserPhotoChange} />
+                    Upload Photo
+                  </label>
+                </div>
+                <div className="profile-info">
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>{userData.name}</td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td>{userData.email}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="profile-bookings">
+            <div className="profile-details">
+              <h2>My Pets</h2>
+              <div className="pet-info">
+                {petData && petData.length > 0 ? (
+                  <div className="pet-list">
+                    {petData.map((pet, index) => (
+                      <div className="pet-card" key={index}>
+                        <div className="pet-photo">
+                          {petPhoto ? (
+                            <img src={petPhoto} alt={pet.name} />
+                          ) : (
+                            <img src="/images/img-10.jpg" alt={pet.name} />
+                          )}
+                          <label className="photo-upload">
+                            <input type="file" onChange={(e) => handlePetPhotoChange(e, index)} />
+                            Upload Photo
+                          </label>
+                        </div>
+                        <div className="pet-info">
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>Name:</td>
+                                <td>{pet.name}</td>
+                              </tr>
+                              <tr>
+                                <td>Species:</td>
+                                <td>{pet.species}</td>
+                              </tr>
+                              <tr>
+                                <td>Breed:</td>
+                                <td>{pet.breed}</td>
+                              </tr>
+                              <tr>
+                                <td>Age:</td>
+                                <td>{pet.age}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div>No pets found.</div>
+                )}
+              </div>
+            </div>
+            <div className="profile-bookings">
             <h2>Recent Transactions</h2>
-            <div>
-              <p>Pet Grooming</p>
-              <p>Date: 04/01/2023</p>
-              <p>Time: 10:00 AM</p>
-              <p>Cost: $50</p>
-            </div>
-            <div>
-              <p>General Checkup</p>
-              <p>Date: 03/02/2023</p>
-              <p>Time: 2:00 PM</p>
-              <p>Cost: $250</p>
-            </div>
+            {transactions.map((transaction, index) => (
+              <div key={index}>
+                <p>Service: {transaction.service}</p>
+                <p>Date: {transaction.date}</p>
+                <p>Time: {transaction.time}</p>
+                <p>Cost: {transaction.cost}</p>
+              </div>
+            ))}
+            <button onClick={handleAddTransaction}>Add Transaction</button>
           </div>
         </div>
+        )}
       </div>
     </div>
   );
 }
 
 export default Profile;
-
-
-
-
-
-
-
-
-
-
-// USE THIS WHEN BACKEND IS AVAILABLE
-
-// import React from 'react';
-// import './Profile.css';
-
-// const Profile = ({ user }) => {
-//   return (
-//     <div className="profile-container">
-//       <h1 className="profile-heading">My Profile</h1>
-//       <div className="profile-card">
-//         <div className="profile-card-content">
-//           <div className="profile-card-field">
-//             <span>Name:</span>
-//             <span>{user.name}</span>
-//           </div>
-//           <div className="profile-card-field">
-//             <span>Email:</span>
-//             <span>{user.email}</span>
-//           </div>
-//           <div className="profile-card-field">
-//             <span>Phone:</span>
-//             <span>{user.phone}</span>
-//           </div>
-//           <h2 className="profile-subheading">My Bookings</h2>
-//           {user.bookings.map((booking) => (
-//             <div key={booking.id} className="profile-booking">
-//               <div className="profile-booking-field">
-//                 <span>Flight:</span>
-//                 <span>{booking.flight}</span>
-//               </div>
-//               <div className="profile-booking-field">
-//                 <span>Date:</span>
-//                 <span>{booking.date}</span>
-//               </div>
-//               <div className="profile-booking-field">
-//                 <span>Passengers:</span>
-//                 <span>{booking.passengers}</span>
-//               </div>
-//               <div className="profile-booking-field">
-//                 <span>Status:</span>
-//                 <span>{booking.status}</span>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Profile;
-
-
-// // import React from 'react';
-// // import './Profile.css';
-
-// // const Profile = ({ user }) => {
-// //   return (
-// //     <div className="profile-container">
-// //       <div className="profile-card">
-// //         <div className="profile-header">
-// //           <h1>My Profile</h1>
-// //         </div>
-// //         <div className="profile-body">
-// //           <div className="profile-details">
-// //             <h2>Personal Details</h2>
-// //             <p>Name: {user.name}</p>
-// //             <p>Email: {user.email}</p>
-// //             <p>Phone: {user.phone}</p>
-// //           </div>
-// //           <div className="profile-bookings">
-// //             <h2>My Bookings</h2>
-// //             {user.bookings.map((booking) => (
-// //               <div key={booking.id} className="booking-card">
-// //                 <p>Flight: {booking.flight}</p>
-// //                 <p>Date: {booking.date}</p>
-// //                 <p>Passengers: {booking.passengers}</p>
-// //                 <p>Status: {booking.status}</p>
-// //               </div>
-// //             ))}
-// //           </div>
-// //         </div>
-// //       </div>
-// //     </div>
-// //   );
-// // }
-
-// // export default Profile;

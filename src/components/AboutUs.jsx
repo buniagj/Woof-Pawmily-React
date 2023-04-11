@@ -7,7 +7,7 @@ function AboutUs() {
     <section className="about-us">
       <div className="container">
         <div className="row">
-          <div className="col-lg-6">
+          <div className="col-lg-12">
             <h2>ABOUT US</h2>
             <p>Welcome to Woof Pawmily, the ultimate online destination for dog lovers around the world! Our passion for canines inspired us to create a community that celebrates the unconditional love, loyalty, and joy that dogs bring to our lives.</p>
             <p>At Woof Pawmily, we understand that dogs are not just pets; they are furry family members who deserve the best care, attention, and love. Our mission is to help you give your dog the best life possible by providing you with valuable information, resources, and products that cater to your dog's unique needs and personality.</p>

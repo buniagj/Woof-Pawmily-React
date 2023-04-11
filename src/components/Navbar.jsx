@@ -81,7 +81,7 @@ function Navbar() {
 
             <li>
               <Link
-                to='/sign-up'
+                to='/signupform'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >

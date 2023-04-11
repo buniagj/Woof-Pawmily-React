@@ -1,9 +1,17 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import SignUpForm from '../components/SignUpForm';
 
 const SignUp = () => {
-  const handleSignUp = () => {
-    // handle successful sign up
+  const handleSignUp = async ({ email, password }) => {
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      // handle successful sign up
+    } catch (error) {
+      console.error(error);
+      // handle sign up error
+    }
   };
 
   return (
@@ -14,4 +22,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-

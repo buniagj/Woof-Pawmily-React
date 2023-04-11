@@ -2,8 +2,18 @@ import React from 'react'
 import { Container , Nav , Navbar } from 'react-bootstrap'
 import logo from '../assets/images/logo.png'
 import './Comp.css'
+import { useAuth } from '../AuthContext'
+import { useLocation } from 'react-router-dom'
 
 export default function TheNavbar() {
+  const { currentUser, signOut } = useAuth() || {};
+  const location = useLocation();
+  const isProfilePage = location.pathname === "/profile";
+
+  function handleSignOut() {
+    signOut();
+  }
+
   return (
     <header>
         <Navbar className='navi-bar' expand="lg">
@@ -15,10 +25,14 @@ export default function TheNavbar() {
                         <Nav className='mx-auto nav-links'>
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="pawpedia">Pawpedia</Nav.Link>
-                            <Nav.Link href="services">Services</Nav.Link>
                             <Nav.Link href="products">Products</Nav.Link>
-                            <Nav.Link href="#about">About</Nav.Link>
+                            <Nav.Link href="aboutus">About</Nav.Link>
                             <Nav.Link href="contact">Contact</Nav.Link>
+                            {currentUser && isProfilePage ? (
+                              <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+                            ) : (
+                              <Nav.Link href="/signupform">Sign Up</Nav.Link>
+                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
