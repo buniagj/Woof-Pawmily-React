@@ -21,9 +21,9 @@ export default function TheNavbar() {
             <Container className='d-block navbar-container'>
                 <Navbar.Brand className='d-flex justify-content-center' href="#home"><img className='nav-logo' src={logo} alt="" /></Navbar.Brand>
                 {currentUser && isProfilePage ? (
-                  <Nav.Link className='auth error' onClick={handleSignOut}>Sign Out</Nav.Link>
+                  <Link className='auth error' onClick={handleSignOut}>Sign Out</Link>
                 ) : (
-                  <Nav.Link className='auth error' href="/signupform"><u>SIGN UP / LOGIN</u><i class="bi bi-file-person"></i></Nav.Link>
+                  <Link className='auth error' to="/signupform"><u>SIGN UP / LOGIN</u><i class="bi bi-file-person"></i></Link>
                 )}
                 <Navbar.Toggle className='berger-menu' aria-controls="basic-navbar-nav" />
                 <Container className='nav-container'>

@@ -26,7 +26,7 @@ function AboutUs() {
                 </div>
                 <div className="col">
                   <figure>
-                    <img className='dev-pic' src="" alt="" />
+                    <img className='dev-pic' src="images/dev2.jpg" alt="" />
                     <h5 className='error'>Paw-end Developer</h5>
                   </figure>
                 </div>

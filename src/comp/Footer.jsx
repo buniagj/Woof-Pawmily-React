@@ -33,17 +33,10 @@ function Footer() {
           <div className='footer-link-items'>
             <h2>About Us</h2>
             <Link to='/aboutus'>About</Link>
-            {/* <Link to='/'>Testimonials</Link>
-            <Link to='/'>Careers</Link>
-            <Link to='/'>Donations</Link>
-            <Link to='/'>Terms of Service</Link> */}
           </div>
           <div className='footer-link-items'>
             <h2>Contact Us</h2>
             <Link to='/contact'>Contact</Link>
-            {/* <Link to='/'>Volunteer Works</Link>
-            <Link to='/'>Adventure</Link>
-            <Link to='/'>Adopt-a-Dog</Link> */}
           </div>
         </div>
         <div className='footer-link-wrapper'>
@@ -51,9 +44,6 @@ function Footer() {
             <h2>Products</h2>
             <Link to='/products'>Products</Link>
             <Link to='/pawpedia'>Pawpedia</Link>
-            {/* <Link to='/'>Ambassadors</Link>
-            <Link to='/'>Agency</Link>
-            <Link to='/'>Influencer</Link> */}
           </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>
