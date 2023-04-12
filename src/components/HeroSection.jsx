@@ -11,11 +11,11 @@ function HeroSection() {
         <h1><span>Paw</span>sitively <span>the</span> best.</h1>
         <p>What are you waiting for?</p>
         <div className='hero-btns'>
-        <Link className='hero-btn1'>GET STARTED</Link>
+        <Link to={'/signupform'} className='hero-btn1'>GET STARTED</Link>
         </div>
         <div> 
           <p className="login-class">Already a Member?</p>
-          <Link className='hero-btn2'>LOGIN</Link>
+          <Link to={'/LogIn'} className='hero-btn2'>LOGIN</Link>
         </div>
       </div>
     </div>
