@@ -391,3 +391,10 @@ video{
   @media screen and (max-width: 768px) {
   
   }
+
+
+  .subscribe-btn{
+    background-color: #E98842!important;
+    border-color: rgb(230, 230, 231)!important;
+    width: 30%;
+  }
