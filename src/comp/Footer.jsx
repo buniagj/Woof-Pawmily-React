@@ -47,19 +47,19 @@ function Footer() {
           </div>
           <div className='footer-link-items'>
             <h2>Social Media</h2>
-            <a href='https://www.instagram.com/' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
+            <a href='https://www.instagram.com/woofpawmily/' target='_blank' rel='noopener noreferrer' aria-label='Instagram'>
               <FontAwesomeIcon icon={faInstagram} className='social-icon' />
               @WoofPawmily
             </a>
-            <a href='https://www.facebook.com/' target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
+            <a href='https://www.facebook.com/WoofPawmily/' target='_blank' rel='noopener noreferrer' aria-label='Facebook'>
               <FontAwesomeIcon icon={faFacebookF} className='social-icon' />
               Woof Pawmily
             </a>
-            <a href='https://www.youtube.com/' target='_blank' rel='noopener noreferrer' aria-label='Youtube'>
+            <a href='https://www.youtube.com/channel/UCMlyqckkdndYcbRwkTrGJnA' target='_blank' rel='noopener noreferrer' aria-label='Youtube'>
               <FontAwesomeIcon icon={faYoutube} className='social-icon' />
               Woof Pawmily
             </a>
-            <a href='https://twitter.com/' target='_blank' rel='noopener noreferrer' aria-label='Twitter'>
+            <a href='https://twitter.com/WoofPawmily' target='_blank' rel='noopener noreferrer' aria-label='Twitter'>
               <FontAwesomeIcon icon={faTwitter} className='social-icon' />
               @WoofPawmily
             </a>
