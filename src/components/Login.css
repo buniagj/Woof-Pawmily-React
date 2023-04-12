@@ -13,6 +13,10 @@ body {
   height: 100vh;
 }
 
+.login{
+  padding: 5rem 0;
+}
+
 .login-page {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);

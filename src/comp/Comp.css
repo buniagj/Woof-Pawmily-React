@@ -68,10 +68,11 @@ header{
     }
 }
 .navbar-toggler{
-    position: fixed;
-    top: 5%;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    border: 2px solid #E98842!important;
 }
-
 /* ==HERO SECTION== */
 .hero-btn1{
     border: 2px solid white;
@@ -348,6 +349,16 @@ video{
     margin-bottom: 16px;
     height: 5rem;
     width: 10rem;
+  }
+
+  .auth{
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    color: #E98842!important;
+  }
+  .navbar-container{
+    position: relative;
   }
   
   .website-rights {

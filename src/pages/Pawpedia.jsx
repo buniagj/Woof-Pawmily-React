@@ -159,7 +159,7 @@ export default function Services()
       <h1 className='services'>PAWPEDIA</h1>
       <section>
       <Container>
-        <Form className="mt-5 mb-4" onSubmit={searchSubmit}>
+        <Form className="mt-5 mb-4 form-control1" onSubmit={searchSubmit}>
           <Form.Control
             type="text"
             name="breed-search"

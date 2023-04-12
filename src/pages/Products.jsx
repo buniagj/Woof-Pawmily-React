@@ -40,8 +40,8 @@ export default function Products() {
     <section>
         <h1 className='products'>Products</h1>
         <Container>
-            <div className='d-flex filter-btn justify-content-center align-items-center'>
-                  <p className='m-0'>Filter by:</p>
+            <div className='my-5 d-flex filter-btn justify-content-center align-items-center'>
+                  <p className='m-0 me-3 error'><b>Filter products by:</b></p>
                   <button onClick={() => {productFilter("all")}}>All</button>
                   <button onClick={() => {productFilter("puppy")}}>Puppy</button>
                   <button onClick={() => {productFilter("adult")}}>Adult</button>

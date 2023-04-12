@@ -18,8 +18,13 @@ export default function TheNavbar() {
   return (
     <header>
         <Navbar className='navi-bar' expand="lg">
-            <Container className='d-block'>
+            <Container className='d-block navbar-container'>
                 <Navbar.Brand className='d-flex justify-content-center' href="#home"><img className='nav-logo' src={logo} alt="" /></Navbar.Brand>
+                {currentUser && isProfilePage ? (
+                  <Nav.Link className='auth error' onClick={handleSignOut}>Sign Out</Nav.Link>
+                ) : (
+                  <Nav.Link className='auth error' href="/signupform"><u>SIGN UP / LOGIN</u><i class="bi bi-file-person"></i></Nav.Link>
+                )}
                 <Navbar.Toggle className='berger-menu' aria-controls="basic-navbar-nav" />
                 <Container className='nav-container'>
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -29,11 +34,6 @@ export default function TheNavbar() {
                             <Link className="font-text-nav" to="products">PRODUCTS</Link>
                             <Link className="font-text-nav" to="aboutus">ABOUT</Link>
                             <Link className="font-text-nav" to="contact">CONTACT</Link>
-                            {currentUser && isProfilePage ? (
-                              <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
-                            ) : (
-                              <Nav.Link href="/signupform">Sign Up</Nav.Link>
-                            )}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

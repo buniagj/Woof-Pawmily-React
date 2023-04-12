@@ -38,7 +38,7 @@
   gap: 1rem;
   padding: 0!important;
  }
- .form-control{
+ .form-control1{
   width: 50%!important;
   margin: 0 auto;
  }
@@ -52,8 +52,13 @@
  .modal-info > p > span {
   font-weight: bold;
  }
- .filter-btn{
-  /* width: 100px; */
+ .filter-btn > button{
+  padding: .2rem 1rem;
+  margin-right: .2rem;
+  border-radius: 20px;
+  background-color: #E98842;
+  color: white;
+  border: none;
  }
  .pawpedia-modal-btn{
   color: #E98842;
@@ -151,8 +156,9 @@ a {
 }
 .send-msg:hover{
   border-radius: 30px;
-  background-color: rgba(212, 0, 202, 0.7);
+  background-color: #E98842;
   color: white;
+  font-family: 'Barrio', cursive;
 }
 
 .product-img{
@@ -178,4 +184,7 @@ a {
 .product-title{
   border-top: 1px solid rgba(0, 0, 0, .3);
   border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+.error > span {
+  color: #E98842;
 }

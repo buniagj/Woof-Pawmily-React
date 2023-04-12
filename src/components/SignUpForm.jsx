@@ -36,6 +36,7 @@ const SignUp = () => {
   const passwordValidationMessage = '*Password should be at least 6 characters long.';
 
   return (
+    <section className='signup'>
     <div className="signup-page">
       {signUpSuccess ? (
         <div className="signup-success">
@@ -44,7 +45,7 @@ const SignUp = () => {
         </div>
       ) : (
         <>
-          <h1>Create your Pawsonal account.</h1>
+          <h1 className='error'>Create your Pawsonal account.</h1>
           <form onSubmit={handleSubmit} className="signup-form">
             <div className="left-column">
               <label>Name:</label>
@@ -80,6 +81,7 @@ const SignUp = () => {
         </>
       )}
     </div>
+   </section>
   );
 };
 

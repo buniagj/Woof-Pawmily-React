@@ -101,6 +101,13 @@ main {
   position: relative;
 }
 
+.dev-pic{
+  width: 200px;
+  border-radius: 50%;
+  border: 2px solid #E98842;
+  margin-bottom: 1rem;
+}
+
 .about-us::before {
   content: "";
   position: absolute;

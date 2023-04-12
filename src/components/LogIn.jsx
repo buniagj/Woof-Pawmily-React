@@ -29,6 +29,7 @@ const Login = () => {
   };
 
   return (
+    <section className='signup login'>
     <div className="login-page">
       <h1 className="login-page-title">Login Page</h1>
       {loginSuccess && <p className="success-message">Login successful!</p>}
@@ -64,6 +65,7 @@ const Login = () => {
       )}
       <p className="option">Don't have an account? <Link to="/signup">Sign Up Now!</Link></p>
     </div>
+    </section>
   );
 };
 

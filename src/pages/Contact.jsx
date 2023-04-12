@@ -6,7 +6,7 @@ export default function Contact() {
     <section>
         <Container id='contact' className='align-items-center justify-content-center'>
             <div className='mx-5'>
-                <h1 className='text-center pt-5'>Get in touch</h1>
+                <h1 className='text-center pt-5 error'>Get in <span>touch</span></h1>
                 <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Email address</Form.Label>
